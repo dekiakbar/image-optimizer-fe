@@ -13,7 +13,7 @@ const config = {
     maxNumberOfFiles: 5,
     maxFileSize: 8 * 1024 * 1024,
     allowedFileTypes: [".jpg", ".jpeg", ".png"],
-    endpoint: "http://localhost:3000/api/v1/optimize",
+    endpoint: process.env.BACKEND_URL,
     fieldName: 'images',
 }
 
