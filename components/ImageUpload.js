@@ -13,7 +13,7 @@ const config = {
     maxNumberOfFiles: 5,
     maxFileSize: 8 * 1024 * 1024,
     allowedFileTypes: [".jpg", ".jpeg", ".png"],
-    endpoint: process.env.BACKEND_URL,
+    endpoint: process.env.NEXT_PUBLIC_API_SERVER_URL,
     fieldName: 'images',
 }
 
@@ -100,8 +100,8 @@ class ImageUpload extends React.Component {
                     { 
                         this.state.datas.map(data => 
                             <li key={data.data.id} className={styles.li}>
-                                <span>{data.data.name} : </span>
-                                <span className={styles.saved}>
+                                <span key={data.response.body[0].fileId}>{data.data.name} : </span>
+                                <span key={data.data.id+data.response.body[0].fileId} className={styles.saved}>
                                     {(data.data.size/1024).toFixed(2)} KB / {(data.response.body[0].size/1024).toFixed(2)} KB ({data.response.body[0].optimizePercentage}%)
                                 </span>
                                 <button className={styles.download} onClick={() => {this.handleDownload(data.response.body[0].url, data.response.body[0].name)}}>
