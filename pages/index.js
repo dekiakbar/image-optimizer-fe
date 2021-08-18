@@ -3,7 +3,14 @@ import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import ImageUpload from '../components/ImageUpload'
 
-export default function Home() {
+export async function getServerSideProps() {
+    const res = await fetch(process.env.NEXT_PUBLIC_API_CONFIG_URL)
+    const config = await res.json();
+    config.endpoint = process.env.NEXT_PUBLIC_API_SERVER_URL;
+    return { props: { config } }
+}
+
+export default function Home({ config }) {
     return (
     <div className={styles.container}>
         <Head>
@@ -14,7 +21,7 @@ export default function Home() {
 
         <main className={styles.main}>
             <div className={styles.grid}>
-                <ImageUpload />
+                <ImageUpload config={config}/>
             </div>
         </main>
 

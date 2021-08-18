@@ -8,38 +8,29 @@ import axios from "axios";
 import fileDownload from "js-file-download";
 import styles from '../styles/ImageUpload.module.css';
 
-const config = {
-    quality: 50,
-    maxNumberOfFiles: 5,
-    maxFileSize: 8 * 1024 * 1024,
-    allowedFileTypes: [".jpg", ".jpeg", ".png"],
-    endpoint: process.env.NEXT_PUBLIC_API_SERVER_URL,
-    fieldName: 'images',
-}
-
 class ImageUpload extends React.Component {
     constructor (props) {
         super(props)
         this.state = {
             datas: [],
-            quality: config.quality
+            quality: 50,
         };
-        
+
         this.uppy = new Uppy({
             meta: {
                 quality: this.state.quality
             },
             restrictions: {
-                maxNumberOfFiles: config.maxNumberOfFiles,
-                maxFileSize: config.maxFileSize,
-                allowedFileTypes: config.allowedFileTypes,
+                maxNumberOfFiles: props.config.maxFileUpload,
+                maxFileSize: props.config.maxUploadSize * 1024,
+                allowedFileTypes: props.config.allowedFileTypes,
             },
             autoProceed: true,
         })
         this.uppy.use(
             XHRUpload, {
-                endpoint: config.endpoint,
-                fieldName: config.fieldName,
+                endpoint: props.config.endpoint,
+                fieldName: 'images',
                 formData: true,
             }
         )
@@ -99,7 +90,7 @@ class ImageUpload extends React.Component {
                 <ul className={styles.result}>
                     { 
                         this.state.datas.map(data => 
-                            <li key={data.data.id} className={styles.li}>
+                            <li key={data.response.body[0].fileId} className={styles.li}>
                                 <span key={data.response.body[0].fileId}>{data.data.name} : </span>
                                 <span key={data.data.id+data.response.body[0].fileId} className={styles.saved}>
                                     {(data.data.size/1024).toFixed(2)} KB / {(data.response.body[0].size/1024).toFixed(2)} KB ({data.response.body[0].optimizePercentage}%)
@@ -114,5 +105,5 @@ class ImageUpload extends React.Component {
             </div>
         )
     }
-  }
+}
 export default ImageUpload
