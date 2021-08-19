@@ -14,6 +14,9 @@ class ImageUpload extends React.Component {
         this.state = {
             datas: [],
             quality: 50,
+            note: "Allowed Image : "+props.config.allowedFileTypes.join(', ') + 
+                " | Max images : "+ props.config.maxFileUpload +" | up to "+ 
+                props.config.maxUploadSize / 1024 +"MB"
         };
 
         this.uppy = new Uppy({
@@ -83,8 +86,9 @@ class ImageUpload extends React.Component {
                     uppy={this.uppy}
                     plugins={['DropTarget']}
                     width='100%'
-                    height={300}
+                    height={400}
                     proudlyDisplayPoweredByUppy={false}
+                    note={this.state.note}
                 />
 
                 <ul className={styles.result}>

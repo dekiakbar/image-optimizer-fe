@@ -14,3 +14,13 @@ a {
 * {
   box-sizing: border-box;
 }
+
+@media screen and (min-width: 739px){
+    .uppy-size--md .uppy-Dashboard-AddFiles .uppy-Dashboard-AddFiles-info {
+        bottom: 100px;
+    }
+}
+
+.uppy-Dashboard-AddFiles .uppy-Dashboard-AddFiles-info {
+    display: block;
+}

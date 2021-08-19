@@ -21,7 +21,8 @@
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  margin-top: 3rem;
+  margin-top: 1rem;
+  max-width: 80%;
   width: 100%;
 }
 
@@ -44,4 +45,8 @@
     width: 100%;
     flex-direction: column;
   }
+}
+
+.warning-container{
+    background-color: ivory;
 }
