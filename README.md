@@ -22,7 +22,7 @@ git clone https://github.com/dekiakbar/image-optimizer-fe
 Navigate to project dir
 
 ```bash
-cd image optimizer fe
+cd image-optimizer-fe
 ```
 
 Install node modules and dependencies
