@@ -3,7 +3,7 @@ import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import ImageUpload from '../components/ImageUpload'
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
     const res = await fetch(process.env.NEXT_PUBLIC_API_CONFIG_URL)
     const config = await res.json();
     config.endpoint = process.env.NEXT_PUBLIC_API_SERVER_URL;
