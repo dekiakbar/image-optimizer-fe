@@ -16,7 +16,7 @@ class ImageUpload extends React.Component {
             quality: 50,
             note: "Allowed Image : "+props.config.allowedFileTypes.join(', ') + 
                 " | Max images : "+ props.config.maxFileUpload +" | up to "+ 
-                props.config.maxUploadSize / 1024 +"MB"
+                props.config.maxUploadSize / 1024 +"MB / Image"
         };
 
         this.uppy = new Uppy({
@@ -30,6 +30,7 @@ class ImageUpload extends React.Component {
             },
             autoProceed: true,
         })
+
         this.uppy.use(
             XHRUpload, {
                 endpoint: props.config.endpoint,
@@ -46,10 +47,6 @@ class ImageUpload extends React.Component {
             var joinedDatas = this.state.datas.concat(response.successful);
             this.setState({ datas: joinedDatas })
         })
-    }
-
-    componentWillUnmount () {
-        this.uppy.close()
     }
     
     handleDownload = (url, filename) => {
@@ -79,7 +76,7 @@ class ImageUpload extends React.Component {
                 <div className={styles.quality}>
                     <label htmlFor="input-quality">Quality : </label>
                     <output htmlFor="quantity">{this.state.quality}</output>
-                    <input id="input-quality" className={styles.input} type="range" name="quantity" min="5" max="99" onInput={this.changeQualityValue} value={this.state.quality} />
+                    <input id="input-quality" className={styles.input} type="range" name="quantity" min="5" max="90" onInput={this.changeQualityValue} value={this.state.quality} />
                 </div>
 
                 <Dashboard 
@@ -94,10 +91,10 @@ class ImageUpload extends React.Component {
                 <ul className={styles.result}>
                     { 
                         this.state.datas.map(data => 
-                            <li key={data.response.body[0].fileId} className={styles.li}>
-                                <span key={data.response.body[0].fileId}>{data.data.name} : </span>
-                                <span key={data.data.id+data.response.body[0].fileId} className={styles.saved}>
-                                    {(data.data.size/1024).toFixed(2)} KB / {(data.response.body[0].size/1024).toFixed(2)} KB ({data.response.body[0].optimizePercentage}%)
+                            <li key={data.response.body[0].imageId} className={styles.li}>
+                                <span key={data.response.body[0].imageId}>{data.data.name} : </span>
+                                <span key={data.data.id+data.response.body[0].imageId} className={styles.saved}>
+                                    {(data.response.body[0].sizeBefore/1024).toFixed(2)} KB / {(data.response.body[0].sizeAfter/1024).toFixed(2)} KB ({data.response.body[0].optimizePercentage}%)
                                 </span>
                                 <button className={styles.download} onClick={() => {this.handleDownload(data.response.body[0].url, data.response.body[0].name)}}>
                                     Download
