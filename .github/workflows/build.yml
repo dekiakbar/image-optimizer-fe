@@ -1,0 +1,28 @@
+name: Build
+
+on: ["push","pull_request"]
+
+jobs:
+  build:
+    name: Run Build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: install node lts (v16.17.0)
+        uses: actions/setup-node@v3
+        with:
+          node-version: lts/gallium
+      - name: Prepare .env.local
+        run: |
+          touch .env.local
+          echo SITE_IMAGE=${{ secrets.SITE_IMAGE }} >> .env.local
+          echo SITE_KEYS=${{ secrets.SITE_KEYS }} >> .env.local
+          echo SITE_DESC=${{ secrets.SITE_DESC }} >> .env.local
+          echo SITE_TITLE=${{ secrets.SITE_TITLE }} >> .env.local
+          echo SITE_URL=${{ secrets.SITE_URL }} >> .env.local
+          echo NEXT_PUBLIC_API_CONFIG_URL=${{ secrets.NEXT_PUBLIC_API_CONFIG_URL }} >> .env.local
+          echo NEXT_PUBLIC_API_SERVER_URL=${{ secrets.NEXT_PUBLIC_API_SERVER_URL }} >> .env.local
+      - name: npm install
+        run: npm install
+      - name: run build
+        run: npm run build
