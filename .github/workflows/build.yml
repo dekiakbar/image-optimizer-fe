@@ -1,0 +1,18 @@
+name: Build
+
+on: ["push","pull_request"]
+
+jobs:
+  build:
+    name: Run Build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: install node lts (v16.17.0)
+        uses: actions/setup-node@v3
+        with:
+          node-version: lts/gallium
+      - name: npm install
+        run: npm install
+      - name: run build
+        run: npm run build
