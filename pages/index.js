@@ -1,7 +1,8 @@
 import Head from 'next/head'
-import Image from 'next/image'
-import styles from '../styles/Home.module.css'
+import Footer from '../components/Footer';
+import Header from '../components/Header';
 import ImageUpload from '../components/ImageUpload'
+import Navbar from '../components/Navbar';
 
 export async function getStaticProps() {
     const res = await fetch(process.env.NEXT_PUBLIC_API_CONFIG_URL)
@@ -19,10 +20,18 @@ export async function getStaticProps() {
 
 export default function Home({ config }) {
     return (
-    <div className={styles.container}>
+    <div>
         <Head>
             <title>{config.seo.title}</title>
-            <link rel="icon" href="/favicon.ico" />
+            
+            <link rel="icon" href="/favicon.ico" type="image/png"/>
+            <link rel="manifest" href="/site.webmanifest" crossOrigin="anonymous" />
+            <link rel="apple-touch-icon" sizes="16x16" href="/icons/favicon-16x16.png" />
+            <link rel="apple-touch-icon" sizes="32x32" href="/icons/favicon-32x32.png" />
+            <link rel="apple-touch-icon" sizes="192x192" href="/icons/android-chrome-192x192.png" />
+            <link rel="apple-touch-icon" sizes="512x512" href="/icons/android-chrome-512x512.png" />
+            <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+
             <link rel="canonical" href={config.seo.url} />
             <meta name="robots" content="index,follow" />
             <meta name="googlebot" content="index,follow" />
@@ -43,28 +52,15 @@ export default function Home({ config }) {
             <meta property="twitter:image" content={config.seo.image}/>
         </Head>
 
-        <main className={styles.main}>
-            <div className={styles.grid}>
-                <ImageUpload config={config}/>
-            </div>
-        </main>
+        <Navbar/>
 
-        <footer className={styles.footer}>
-            Build with
-            <a href="https://nextjs.org/" target="_blank" rel="noopener noreferrer">
-                <span className={styles.logo}>
-                    <Image src="/next.svg" alt="NextJs Logo" width={32} height={32} />
-                </span>
-            </a>
-            <span className={styles.logo}>
-                <Image src="/heart.svg" alt="NextJs Logo" width={24} height={16} />
-            </span>
-            <a href="https://nestjs.com/" target="_blank" rel="noopener noreferrer">
-                <span className={styles.logo}>
-                    <Image src="/nest.svg" alt="NextJs Logo" width={32} height={32} />
-                </span>
-            </a>
-        </footer>
+        <Header />
+
+        <div className="container mx-auto px-4">
+            <ImageUpload config={config}/>
+        </div>
+
+        <Footer/>
     </div>
     )
 }
