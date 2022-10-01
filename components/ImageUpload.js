@@ -100,7 +100,7 @@ class ImageUpload extends React.Component {
                 <div className="grid lg:grid-cols-4 md:grid-cols-3 grid-cols-1 gap-4 py-4">
                     {
                         this.state.datas.map(data =>
-                            <div key={data.response.body[0].imageId} className="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl">
+                            <div key={data.response.body[0].imageId} className="w-full mx-auto bg-white rounded-xl shadow-md overflow-hidden">
                                 <div className="md:flex">
                                     <div className="p-8">
                                         <ul role="list" className="marker:text-violet-400 list-disc pl-2 space-y-1 text-slate-700 text-xs">
