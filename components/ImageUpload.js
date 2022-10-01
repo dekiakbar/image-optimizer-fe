@@ -35,7 +35,6 @@ class ImageUpload extends React.Component {
                 endpoint: props.config.endpoint,
                 fieldName: 'images',
                 formData: true,
-                bundle: true
             }
         )
 
@@ -100,7 +99,7 @@ class ImageUpload extends React.Component {
 
                 <div className="grid lg:grid-cols-4 md:grid-cols-3 grid-cols-1 gap-4 py-4">
                     {
-                        this.state.datas.map(data =>         
+                        this.state.datas.map(data =>
                             <div key={data.response.body[0].imageId} className="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl">
                                 <div className="md:flex">
                                     <div className="p-8">
