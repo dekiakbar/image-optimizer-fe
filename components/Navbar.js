@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 export default function Navbar(){
     return (
-        <nav className="bg-white px-2 sm:px-4 py-2.5 dark:bg-gray-900 fixed w-full z-20 top-0 left-0 border-b border-gray-200 dark:border-gray-600">
+        <nav className="bg-white px-2 sm:px-4 py-2.5 fixed w-full top-0 left-0 border-b border-gray-200 z-1100">
             <div className="container flex flex-wrap justify-between items-center mx-auto">
                 <Link href="/">
                     <a className="flex items-center">
@@ -15,14 +15,14 @@ export default function Navbar(){
                             height={35}
                             className=""
                         />
-                        <span className="ml-3 self-center text-xl font-semibold whitespace-nowrap dark:text-white">Image Optimizer</span>
+                        <span className="ml-3 self-center text-xl font-semibold whitespace-nowrap">Image Optimizer</span>
                     </a>
                 </Link>
                 <div className="flex md:order-2">
                     <Link href="https://github.com/dekiakbar/image-optimizer/">
                         <button
                             type="button"
-                            className="text-white bg-violet-700 hover:bg-violet-800 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700"
+                            className="text-white bg-violet-700 hover:bg-violet-800 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-3 md:mr-0"
                         >
                             Github
                         </button>

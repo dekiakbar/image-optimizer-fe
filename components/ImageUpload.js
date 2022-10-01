@@ -104,7 +104,7 @@ class ImageUpload extends React.Component {
                             <div key={data.response.body[0].imageId} className="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl">
                                 <div className="md:flex">
                                     <div className="p-8">
-                                        <ul role="list" class="marker:text-violet-400 list-disc pl-2 space-y-1 text-slate-700 text-xs">
+                                        <ul role="list" className="marker:text-violet-400 list-disc pl-2 space-y-1 text-slate-700 text-xs">
                                             <li>Name : {data.data.name}</li>
                                             <li>Size Before : {(data.response.body[0].sizeBefore/1024).toFixed(2)} KB</li>
                                             <li>Size After : {(data.response.body[0].sizeAfter/1024).toFixed(2)} KB</li>
