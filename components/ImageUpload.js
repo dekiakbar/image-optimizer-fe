@@ -79,7 +79,7 @@ class ImageUpload extends React.Component {
         return (
             <div className="container mx-auto px-4">
                 <div className="py-4">
-                    <label className="block w-full text-sm text-slate-500 mr-4 py-4 px-4 rounded-full border-0 text-sm font-semibold bg-violet-50 text-violet-700 hover:bg-violet-100" htmlFor="input-quality">
+                    <label className="block w-full mr-4 py-4 px-4 rounded-full border-0 text-sm font-semibold bg-violet-50 text-violet-700 hover:bg-violet-100" htmlFor="input-quality">
                         Quality : {this.state.quality}
                         <input id="input-quality" className="block w-full accent-violet-700" type="range" name="quantity" min="5" max="90" onInput={this.changeQualityValue} value={this.state.quality} />
                     </label>
