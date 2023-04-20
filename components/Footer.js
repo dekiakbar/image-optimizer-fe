@@ -56,7 +56,7 @@ export default function Footer(){
                                     </Link>
                                 </li>
                                 <li className="mb-4">
-                                    <Link href="https://api.imageoptimizer.nooby.dev/api">
+                                    <Link href="https://api-imageoptimizer.nooby.dev/api">
                                         <a className="hover:underline ">API</a>
                                     </Link>
                                 </li>
