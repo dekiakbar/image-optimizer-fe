@@ -11,7 +11,7 @@ jobs:
       - name: install node lts (v16.17.0)
         uses: actions/setup-node@v3
         with:
-          node-version: lts/gallium
+          node-version: lts/iron
       - name: Prepare .env.local
         run: |
           touch .env.local
