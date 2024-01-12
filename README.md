@@ -5,9 +5,9 @@ Image Optimizer Frontend is a frontend application for [image optimizer](https:/
 ## Installation
 
 this project created use the following tool
-> node version : v16.6.1
+> node version : v20.11.0
 
-> npm version : 7.20.5
+> npm version : 10.2.4
 
 ### Backend
 You must install [image optimizer](https://github.com/dekiakbar/image-optimizer) backend.

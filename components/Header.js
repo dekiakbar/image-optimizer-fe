@@ -1,4 +1,4 @@
-import Image from 'next/future/image';
+import Image from 'next/image';
 import optmizeImage from '../public/images/optimize.png';
 import apiImage from '../public/images/api.png';
 

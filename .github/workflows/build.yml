@@ -8,10 +8,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: install node lts (v16.17.0)
+      - name: install node lts
         uses: actions/setup-node@v3
         with:
-          node-version: lts/gallium
+          node-version: lts/iron
       - name: Prepare .env.local
         run: |
           touch .env.local
