@@ -1,4 +1,4 @@
-import Image from 'next/future/image';
+import Image from 'next/image';
 import Link from 'next/link';
 const year = new Date().getFullYear();
 
@@ -8,17 +8,17 @@ export default function Footer(){
             <div className="mx-auto container">
                 <div className="md:flex md:justify-between">
                     <div className="mb-6 md:mb-0">
-                        <Link href="/">
-                            <a className="flex items-center">
-                                <Image
-                                    className="mr-3 h-8"
-                                    src="/images/logo.svg"
-                                    alt="Image Optimizer"
-                                    width={35}
-                                    height={35}
-                                />
-                                <span className="ml-3 self-center text-2xl font-semibold whitespace-nowrap">Image Optimizer</span>
-                            </a>
+                        <Link href="/" className="flex items-center">
+
+                            <Image
+                                className="mr-3 h-8"
+                                src="/images/logo.svg"
+                                alt="Image Optimizer"
+                                width={35}
+                                height={35}
+                            />
+                            <span className="ml-3 self-center text-2xl font-semibold whitespace-nowrap">Image Optimizer</span>
+
                         </Link>
                     </div>
                     <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
@@ -26,23 +26,23 @@ export default function Footer(){
                             <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase">Built With</h2>
                             <ul className="text-gray-600">
                                 <li className="mb-4">
-                                    <Link href="https://nestjs.com/">
-                                        <a className="hover:underline">NestJs</a>
+                                    <Link href="https://nestjs.com/" className="hover:underline">
+                                        NestJs
                                     </Link>
                                 </li>
                                 <li className="mb-4">
-                                    <Link href="https://nextjs.org/">
-                                        <a className="hover:underline">NextJs</a>
+                                    <Link href="https://nextjs.org/" className="hover:underline">
+                                        NextJs
                                     </Link>
                                 </li>
                                 <li className="mb-4">
-                                    <Link href="https://uppy.io/">
-                                        <a className="hover:underline">Uppy</a>
+                                    <Link href="https://uppy.io/" className="hover:underline">
+                                        Uppy
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link href="https://tailwindcss.com/">
-                                        <a className="hover:underline">Tailwind CSS</a>
+                                    <Link href="https://tailwindcss.com/" className="hover:underline">
+                                        Tailwind CSS
                                     </Link>
                                 </li>
                             </ul>
@@ -51,13 +51,17 @@ export default function Footer(){
                             <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase">Documentation</h2>
                             <ul className="text-gray-600">
                                 <li className="mb-4">
-                                    <Link href="https://github.com/dekiakbar/image-optimizer">
-                                        <a className="hover:underline ">Github</a>
+                                    <Link
+                                        href="https://github.com/dekiakbar/image-optimizer"
+                                        className="hover:underline ">
+                                        Github
                                     </Link>
                                 </li>
                                 <li className="mb-4">
-                                    <Link href="https://api-imageoptimizer.nooby.dev/api">
-                                        <a className="hover:underline ">API</a>
+                                    <Link
+                                        href="https://api-imageoptimizer.nooby.dev/api"
+                                        className="hover:underline ">
+                                        API
                                     </Link>
                                 </li>
                             </ul>
@@ -68,12 +72,12 @@ export default function Footer(){
                 <div className="sm:flex sm:items-center sm:justify-between">
                     <span className="text-sm text-gray-500 sm:text-center">
                         © { year }
-                        <Link href="/">
-                            <a className="hover:underline">Nooby.dev</a>
+                        <Link href="/" className="hover:underline">
+                            Nooby.dev
                         </Link>
                     </span>
                 </div>
             </div>
         </footer>
-    )
+    );
 }
