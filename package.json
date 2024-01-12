@@ -1,6 +1,6 @@
 {
   "name": "image-optimizer-fe",
-  "version": "0.0.5",
+  "version": "0.0.7",
   "private": true,
   "scripts": {
     "dev": "next dev",
